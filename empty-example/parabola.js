@@ -106,7 +106,9 @@ function start(){
   }
 }
 function draw() {
+
   background("yellow");
+
   if (bullet1lst.length > 25){
     bullet1lst = bullet1lst.splice(0,10);
     print('clipped1');
@@ -209,6 +211,15 @@ function draw() {
 
 
   drawSprites()
+  if (fortress1.health<=0){
+    background('green')
+    let endText = createElement("h1", "Green Team Wins!")
+    endText.position(1500,600)
+  } else if (fortress.health<=0){
+    background('red')
+    let endText = createElement("h1", "Red Team Wins!")
+    endText.position(1500,600)
+  }
 }
 
 class Soldier{
@@ -474,7 +485,9 @@ class Fortress{
     this.health -= 100;
 
     if (this.health <= 0){
-      print("dead");
+      // background('green')
+      // let endText = createElement("h1", "Green Team Wins!")
+      // endText.position(1500,600)
     }
   }
 }
@@ -488,7 +501,10 @@ class Fortress1{
     this.health -= 100;
 
     if (this.health <= 0){
-      print("dead");
+      // background('red')
+      // let endText = createElement("h1", "Red Team Wins!")
+      // endText.position(1500,600)
+
     }
   }
 }
